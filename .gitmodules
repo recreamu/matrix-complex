@@ -1,0 +1,3 @@
+[submodule "libs/matrixlib"]
+	path = libs/matrixlib
+	url = https://github.com/recreamu/matrixlib.git
