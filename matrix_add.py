@@ -4,13 +4,13 @@ import sys
 
 sys.path.append("libs/matrixlib")
 from matrix_io import read_matrix, print_matrix  # noqa: E402
+from matrix_ops import check_same_shape  # noqa: E402
 
 
 def add(a, b):
-    """Поэлементно складывает две матрицы."""
-    if len(a) != len(b) or len(a[0]) != len(b[0]):
-        raise ValueError("сложение определено только для матриц одинаковой размерности")
-    return [[a[i][j] + b[i][j] for j in range(len(a[0]))] for i in range(len(a))]
+    """Поэлементно складывает две матрицы одинаковой размерности."""
+    n, m = check_same_shape(a, b)
+    return [[a[i][j] + b[i][j] for j in range(m)] for i in range(n)]
 
 
 def main():
